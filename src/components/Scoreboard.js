@@ -16,7 +16,12 @@ export default function Scoreboard() {
       <h2>
         {players.map((player) => {
           return (
-            <Player id={player.id} name={player.name} score={player.score} />
+            <Player
+              key={player.id}
+              id={player.id}
+              name={player.name}
+              score={player.score}
+            />
           );
         })}
       </h2>
