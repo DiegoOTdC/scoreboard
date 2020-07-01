@@ -1,7 +1,14 @@
 import React from "react";
+import Title from "./components/Title";
+import Scoreboard from "./components/Scoreboard";
 
 function App() {
-  return <div>hello</div>;
+  return (
+    <div className="App">
+      <Title />
+      <Scoreboard />
+    </div>
+  );
 }
 
 export default App;
