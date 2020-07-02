@@ -13,10 +13,9 @@ function compare_name(player_a, player_b) {
 
 export default function Scoreboard() {
   const [players, set_players] = useState([
-    { id: 1, name: "Violeta", score: 11 },
-    { id: 2, name: "Eszter", score: 14 },
-    { id: 3, name: "Jeroen v2", score: 4 },
-    { id: 4, name: "Lisa", score: 42 },
+    { id: 1, name: "Player 1", score: 0 },
+    { id: 2, name: "Player 2", score: 0 },
+    { id: 3, name: "Player 3", score: 0 },
   ]);
 
   const players_sorted = [...players];
@@ -73,6 +72,20 @@ export default function Scoreboard() {
     set_players(newPlayers);
   };
 
+  const remPlayer = (name) => {
+    const playersList = [...players];
+    const player = playersList
+      .map(function (player) {
+        return player.name;
+      })
+      .indexOf(name);
+    const playerToRemove = [playersList[player]];
+    const oneLessPlayer = playersList.filter(
+      (item) => !playerToRemove.includes(item)
+    );
+    set_players(oneLessPlayer);
+  };
+
   return (
     <div className="Scoreboard">
       <h4>Players scores:</h4>
@@ -93,6 +106,7 @@ export default function Scoreboard() {
             name={player.name}
             score={player.score}
             incrementScore={incrementScore}
+            remPlayer={remPlayer}
           />
         );
       })}

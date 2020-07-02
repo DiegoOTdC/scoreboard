@@ -6,6 +6,10 @@ export default function Player(props) {
     props.incrementScore(props.id);
   };
 
+  const onClickRemPlayer = () => {
+    props.remPlayer(props.name);
+  };
+
   return (
     <div>
       <ul key={props.id}>
@@ -18,6 +22,9 @@ export default function Player(props) {
             {props.name} (score: {props.score}){" "}
             <button className="button" onClick={onClickIncrement}>
               increment
+            </button>
+            <button className="buttonX" onClick={onClickRemPlayer}>
+              X
             </button>
           </p>
         </li>

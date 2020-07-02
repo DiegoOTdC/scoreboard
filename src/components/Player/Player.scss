@@ -22,7 +22,7 @@
   button {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 1.5em;
     bottom: 0;
 
     font-family: inherit;
@@ -32,6 +32,36 @@
     border-color: $warning;
     background: $success;
     color: white;
+
+    &:hover {
+      border-color: $success;
+      background: $danger;
+      color: $warning;
+    }
+    &:active {
+      border-color: black;
+      background: white;
+      color: black;
+    }
+    &:focus {
+      border-color: $primary;
+      background: white;
+      color: $secondary;
+    }
+  }
+  .buttonX {
+    position: absolute;
+    top: 0;
+    right: 0em;
+    bottom: 0;
+
+    font-family: inherit;
+    transition: all 0.2s ease;
+
+    border: border;
+    border-color: $warning;
+    background: $danger;
+    color: $warning;
 
     &:hover {
       border-color: $success;
