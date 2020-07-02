@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Player from "./Player";
-import AddPlayerForm from "./AddPlayerForm";
+import Player from "../Player/Player";
+import AddPlayerForm from "../AddPlayerForm";
+import "./Scoreboard.scss";
 
 function compare_score(player_a, player_b) {
   return player_b.score - player_a.score;
@@ -89,7 +90,11 @@ export default function Scoreboard() {
           />
         );
       })}
-      <AddPlayerForm />
+      <AddPlayerForm
+        addPlayer={(name) => {
+          console.log("Let's add a new player with the name:", name);
+        }}
+      />
     </div>
   );
 }

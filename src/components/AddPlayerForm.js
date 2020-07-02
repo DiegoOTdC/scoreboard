@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function AddPlayerForm() {
+export default function AddPlayerForm(props) {
+  const [name, set_name] = useState("");
+
+  function add() {
+    props.addPlayer(name);
+  }
+
   return (
-    <div className="AddPlayerForm"> [TODO: the form to add a new player]</div>
+    <div className="AddPlayerForm">
+      <p>
+        New player:{" "}
+        <input
+          type="text"
+          value={name}
+          placeholder="Name"
+          onChange={(event) => {
+            set_name(event.target.value);
+          }}
+        />{" "}
+        <button onClick={add}>Add</button>
+      </p>
+    </div>
   );
 }
