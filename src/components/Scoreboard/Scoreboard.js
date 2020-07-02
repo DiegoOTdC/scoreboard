@@ -67,6 +67,12 @@ export default function Scoreboard() {
     );
   };
 
+  const addPlayer = (name) => {
+    const newPlayer = { name: name, score: 0, id: players.length + 1 };
+    const newPlayers = [...players, newPlayer];
+    set_players(newPlayers);
+  };
+
   return (
     <div className="Scoreboard">
       <h4>Players scores:</h4>
@@ -90,11 +96,7 @@ export default function Scoreboard() {
           />
         );
       })}
-      <AddPlayerForm
-        addPlayer={(name) => {
-          console.log("Let's add a new player with the name:", name);
-        }}
-      />
+      <AddPlayerForm addPlayer={addPlayer} />
     </div>
   );
 }
